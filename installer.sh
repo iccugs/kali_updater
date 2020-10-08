@@ -34,7 +34,7 @@ do
 			sudo cp kali_logo.png /opt/kali_updater/kali_logo.png;
 			sudo chmod a+x /opt/kali_updater/kali_updater.sh;
 			echo "[] Creating symbolic link from shell script in opt folder to command in /usr/bin folder.";
-			sudo ln -sf /opt/kali_updater /usr/bin/kali_updater;
+			sudo ln -sf /opt/kali_updater/kali_updater.sh /usr/bin/kali_updater;
 			echo "[] Creating desktop launcher.";
 			sudo echo "[Desktop Entry]" >> kali_updater.desktop;
 			sudo echo "Version = 1.0" >> kali_updater.desktop;
