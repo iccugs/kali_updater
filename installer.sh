@@ -51,6 +51,7 @@ do
 			echo "[] Uninstalling...";
 			sudo rm -rf /opt/kali_updater;
 			sudo rm /usr/share/applications/kali_updater.desktop;
+			sudo rm /usr/bin/kali_updater;
 			echo "[] Done!"
 			;;
 		"Quit")
