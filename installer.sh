@@ -29,13 +29,24 @@ do
 		"Install Kali Updater")
 			echo "[] Making kali_updater directory in /opt/ folder.";
 			sudo mkdir /opt/kali_updater;
-			echo "[] Copying update script and Kali icon to /opt/kali_updater";
+			echo "[] Copying update and installer scripts and Kali icon to /opt/kali_updater";
 			sudo cp kali_updater.sh /opt/kali_updater/kali_updater.sh;
+			sudo cp installer.sh /opt/kali_updater/installer.sh;
 			sudo cp kali_logo.png /opt/kali_updater/kali_logo.png;
 			sudo chmod a+x /opt/kali_updater/kali_updater.sh;
-			echo "[] Creating symbolic link from shell script in opt folder to command in /usr/bin folder.";
+			echo "[] Creating symbolic link from shell scripts in opt folder to command in /usr/bin folder.";
 			sudo ln -sf /opt/kali_updater/kali_updater.sh /usr/bin/kali_updater;
-			echo "[] Creating desktop launcher.";
+			sudo ln -sf /opt/kali_updater/installer.sh /usr/bin/kali_updater_installer;
+			echo "[] Creating desktop launchers.";
+			sudo echo "[Desktop Entry]" >> kali_updater_installer.desktop;
+			sudo echo "Version = 1.0" >> kali_updater_installer.desktop;
+			sudo echo "Type = Application" >> kali_updater_installer.desktop;
+			sudo echo "Terminal = true" >> kali_updater_installer.desktop;
+			sudo echo "Name = Kali Updater Installer" >> kali_updater_installer.desktop;
+			sudo echo "Exec = /usr/bin/kali_updater_installer" >> kali_updater_installer.desktop;
+			sudo echo "Icon = /opt/kali_updater/kali_logo.png" >> kali_updater_installer.desktop;
+			sudo echo "Categories = Application;" >> kali_updater_installer.desktop;
+			sudo mv kali_updater_installer.desktop /usr/share/applications/;
 			sudo echo "[Desktop Entry]" >> kali_updater.desktop;
 			sudo echo "Version = 1.0" >> kali_updater.desktop;
 			sudo echo "Type = Application" >> kali_updater.desktop;
@@ -51,7 +62,9 @@ do
 			echo "[] Uninstalling...";
 			sudo rm -rf /opt/kali_updater;
 			sudo rm /usr/share/applications/kali_updater.desktop;
+			sudo rm /usr/share/applications/kali_updater_installer.desktop;
 			sudo rm /usr/bin/kali_updater;
+			sudo rm /usr/bin/kali_updater_installer;
 			echo "[] Done!"
 			;;
 		"Quit")
@@ -60,4 +73,4 @@ do
 		*) echo "invalid option $REPLY";;
 	esac
 done
-echo "Thank you for using Kali Updater! If you just installed, you should now be able to use the kali_updater command directly from terminal or applications menu."
+echo "Thank you for using Kali Updater! If you just installed, you should now be able to use the kali_updater and kali_updater_installer commands directly from terminal or applications menu."
