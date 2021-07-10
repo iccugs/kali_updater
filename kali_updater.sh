@@ -39,6 +39,7 @@ do
 			echo "[+] Clearing the local repository of retrieved package files that are no longer needed...";
 			sudo apt autoclean -qq;
 			echo "[+] Local cache cleared!"
+			break
 			;;
 		"ONLY Update Repositories & Upgrade")
 			echo "[+] Updating repositories...";
@@ -47,6 +48,7 @@ do
 			echo "[+] Upgrading packages...";
 			sudo apt upgrade -qq;
 			echo "[+] Finished upgrading!"
+			break
 			;;
 		"ONLY Autoremove & Autoclean")
 			echo "[+] Autoremoving dependencies that were not explicitly installed and are no longer needed...";
@@ -55,6 +57,7 @@ do
 			echo "[+] Clearing the local repository of retrieved package files that are no longer needed...";
 			sudo apt autoclean -qq;
 			echo "[+] Local cache cleared!"
+			break
 			;;
 		"Quit")
 			break
