@@ -27,34 +27,34 @@ select opt in "${options[@]}"
 do
 	case $opt in
 		"Update, Upgrade, Autoremove, & Autoclean")
-			echo "[] Updating repositories...";
+			echo "[+] Updating repositories...";
 			sudo apt update -qq;
-			echo "[] Finished updating!";
-			echo "[] Upgrading packages...";
+			echo "[+] Finished updating!";
+			echo "[+] Upgrading packages...";
 			sudo apt upgrade -qq;
-			echo "[] Finished upgrading!";
-			echo "[] Autoremoving dependencies that were not explicitly installed and are no longer needed...";
+			echo "[+] Finished upgrading!";
+			echo "[+] Autoremoving dependencies that were not explicitly installed and are no longer needed...";
 			sudo apt autoremove -qq;
-			echo "[] Finished autoremove!";
-			echo "[] Clearing the local repository of retrieved package files that are no longer needed...";
+			echo "[+] Finished autoremove!";
+			echo "[+] Clearing the local repository of retrieved package files that are no longer needed...";
 			sudo apt autoclean -qq;
-			echo "[] Local cache cleared!"
+			echo "[+] Local cache cleared!"
 			;;
 		"ONLY Update Repositories & Upgrade")
-			echo "[] Updating repositories...";
+			echo "[+] Updating repositories...";
 			sudo apt update -qq;
-			echo "[] Finished updating!";
-			echo "[] Upgrading packages...";
+			echo "[+] Finished updating!";
+			echo "[+] Upgrading packages...";
 			sudo apt upgrade -qq;
-			echo "[] Finished upgrading!"
+			echo "[+] Finished upgrading!"
 			;;
 		"ONLY Autoremove & Autoclean")
-			echo "[] Autoremoving dependencies that were not explicitly installed and are no longer needed...";
+			echo "[+] Autoremoving dependencies that were not explicitly installed and are no longer needed...";
 			sudo apt autoremove -qq;
-			echo "[] Finished autoremove!";
-			echo "[] Clearing the local repository of retrieved package files that are no longer needed...";
+			echo "[+] Finished autoremove!";
+			echo "[+] Clearing the local repository of retrieved package files that are no longer needed...";
 			sudo apt autoclean -qq;
-			echo "[] Local cache cleared!"
+			echo "[+] Local cache cleared!"
 			;;
 		"Quit")
 			break

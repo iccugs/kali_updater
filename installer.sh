@@ -27,17 +27,17 @@ select opt in "${options[@]}"
 do
 	case $opt in
 		"Install Kali Updater")
-			echo "[] Making kali_updater directory in /opt/ folder.";
+			echo "[+] Making kali_updater directory in /opt/ folder.";
 			sudo mkdir /opt/kali_updater;
-			echo "[] Copying update and installer scripts and Kali icon to /opt/kali_updater";
+			echo "[+] Copying update and installer scripts and Kali icon to /opt/kali_updater";
 			sudo cp kali_updater.sh /opt/kali_updater/kali_updater.sh;
 			sudo cp installer.sh /opt/kali_updater/installer.sh;
 			sudo cp kali_logo.png /opt/kali_updater/kali_logo.png;
 			sudo chmod a+x /opt/kali_updater/kali_updater.sh;
-			echo "[] Creating symbolic link from shell scripts in opt folder to command in /usr/bin folder.";
+			echo "[+] Creating symbolic link from shell scripts in opt folder to command in /usr/bin folder.";
 			sudo ln -sf /opt/kali_updater/kali_updater.sh /usr/bin/kali_updater;
 			sudo ln -sf /opt/kali_updater/installer.sh /usr/bin/kali_updater_installer;
-			echo "[] Creating desktop launchers.";
+			echo "[+] Creating desktop launchers.";
 			sudo echo "[Desktop Entry]" >> kali_updater_installer.desktop;
 			sudo echo "Version = 1.0" >> kali_updater_installer.desktop;
 			sudo echo "Type = Application" >> kali_updater_installer.desktop;
@@ -56,16 +56,16 @@ do
 			sudo echo "Icon = /opt/kali_updater/kali_logo.png" >> kali_updater.desktop;
 			sudo echo "Categories = Application;" >> kali_updater.desktop;
 			sudo mv kali_updater.desktop /usr/share/applications/;
-			echo "[] Done installing!"
+			echo "[+] Done installing!"
 			;;
 		"Uninstall Kali Updater")
-			echo "[] Uninstalling...";
+			echo "[+] Uninstalling...";
 			sudo rm -rf /opt/kali_updater;
 			sudo rm /usr/share/applications/kali_updater.desktop;
 			sudo rm /usr/share/applications/kali_updater_installer.desktop;
 			sudo rm /usr/bin/kali_updater;
 			sudo rm /usr/bin/kali_updater_installer;
-			echo "[] Done!"
+			echo "[+] Done!"
 			;;
 		"Quit")
 			break
